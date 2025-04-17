@@ -25,7 +25,7 @@ const services: ServiceItem[] = [
 </script>
 
 <template>
-  <div class="flex flex-col gap-8  py-20">
+  <div class="flex flex-col gap-[60px]  py-20 h-[1000px] justify-center">
     <h2 class="text-6xl font-medium text-left self-center text-[#40362E]">
       Готовые пакеты услуг, в<br />
       зависимости от количества м²
@@ -33,7 +33,7 @@ const services: ServiceItem[] = [
     <div class="flex flex-col divide-y divide-white/20">
       <div class="w-full h-[1px] bg-[#FFFBFC]"></div>
       <div v-for="service in services" :key="service.title" class="py-8">
-        <div class="flex justify-between items-center w-full">
+        <div class="flex justify-around items-center w-full">
           <div class="flex justify-between items-center w-1/2">
             <div class="flex items-center gap-2">
               <img src="/BlackRomb.svg" alt="Romb" width="18" height="18" />

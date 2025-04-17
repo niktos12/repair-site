@@ -1,8 +1,9 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="flex flex-col gap-[60px] mx-[50px]">
-    <h1 class="text-9xl break-words font-medium">
+  <div class="flex flex-col mx-[50px] h-[900px] justify-between">
+    <div class="flex flex-col gap-[60px] mt-[150px]">
+      <h1 class="text-9xl break-words font-medium">
       Ремонт и <br />
       отделка в Сочи
     </h1>
@@ -14,6 +15,7 @@
         <br />
         квартиру или комнату
       </p>
+    </div>
     </div>
     <div class="flex flex-row justify-end items-center gap-20">
       <p class="text-3xl">

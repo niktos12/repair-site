@@ -10,7 +10,7 @@
         Сочи <br /> Ремонт
       </p>
     </div>
-    <div class="flex flex-row gap-[30px]">
+    <div class="flex flex-row gap-[30px] items-center">
       <router-link
         class="text-lg text-white hover:text-blue-400 transition-colors duration-300"
         to="/catalog"
@@ -42,7 +42,7 @@
         Контакты
       </router-link>
     </div>
-    <div class="flex flex-row gap-10">
+    <div class="flex flex-row gap-10 items-center">
       <a
         class="text-lg text-white hover:text-blue-400 transition-colors duration-300 underline"
         href="tel:+79317240942"
