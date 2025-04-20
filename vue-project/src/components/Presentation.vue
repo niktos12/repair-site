@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="flex flex-col mx-[50px] h-[900px] justify-between">
+  <div class="flex flex-col mx-[50px] h-[900px] justify-between bg-[url('/mainbg.svg')] bg-cover bg-center">
     <div class="flex flex-col gap-[60px] mt-[150px]">
       <h1 class="text-9xl break-words font-medium">
       Ремонт и <br />

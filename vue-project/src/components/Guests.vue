@@ -5,7 +5,7 @@ const scrollToTop = () => {
 </script>
 
 <template>
-  <section class="h-[1000px]">
+  <section class="h-[1000px] bg-[url('/guestsbg.svg')] bg-cover bg-center">
     <div class="relative z-10 mx-[50px] h-full flex flex-col justify-between py-[50px]">
       <div class="flex flex-col gap-[60px]">
         <h2 class="text-6xl text-white font-normal">

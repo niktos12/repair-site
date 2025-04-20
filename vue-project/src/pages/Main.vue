@@ -6,6 +6,7 @@ import Services from '../components/Services.vue'
 import BestServices from '../components/BestServices.vue'
 import Guests from '../components/Guests.vue'
 import Experts from '../components/Experts.vue'
+import Footer from '../components/Footer.vue'
 </script>
 
 <template>
@@ -18,6 +19,7 @@ import Experts from '../components/Experts.vue'
   <BestServices />
   <Guests />
   <Experts />
+  <Footer />
 </template>
 
 <style scoped>

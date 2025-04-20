@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="flex flex-col gap-8 mx-[50px] py-20 h-[1000px] justify-between">
+  <div class="flex flex-col gap-8 mx-[50px] py-20 h-[1000px] justify-between bg-[url('/realizebg.svg')] bg-cover bg-center">
     <div class="max-w-[820px]">
       <h2 class="text-6xl font-medium leading-tight mb-6">Реализуем проект в вашем помещении!</h2>
       <div class="flex items-center gap-2">
