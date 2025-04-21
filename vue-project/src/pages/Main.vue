@@ -7,6 +7,8 @@ import BestServices from '../components/BestServices.vue'
 import Guests from '../components/Guests.vue'
 import Experts from '../components/Experts.vue'
 import Footer from '../components/Footer.vue'
+import Projects from '../components/Projects.vue'
+import Decisions from '../components/Decisions.vue'
 </script>
 
 <template>
@@ -14,9 +16,11 @@ import Footer from '../components/Footer.vue'
     <Header />
     <Presentation />
   </div>
+  <Decisions />
   <Realize />
   <Services />
   <BestServices />
+  <Projects />
   <Guests />
   <Experts />
   <Footer />
