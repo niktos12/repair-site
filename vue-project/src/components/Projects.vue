@@ -65,7 +65,7 @@ const paginatedProjects = computed(() => {
 const totalPages = computed(() => Math.ceil(projects.value.length / projectsPerPage))
 
 const formatPrice = (price: number): string => {
-  return price.toLocaleString('ru-RU') + ' ₽'
+  return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ' ₽'
 }
 
 const toggleShowAll = () => {
@@ -87,9 +87,11 @@ const prevPage = () => {
 </script>
 
 <template>
-  <section class="bg-black text-white py-[50px]">
+  <section class="bg-[#FFFBFC] text-[#0A0A0A] py-[50px]">
     <div class="mx-[50px] flex flex-col gap-[60px]">
-      <h2 class="text-6xl font-normal">Наши проекты, выполненные<br />за 10 лет работы</h2>
+      <h2 class="text-6xl font-normal text-[#0A0A0A]">
+        Наши проекты, выполненные<br />за 10 лет работы
+      </h2>
 
       <div class="flex flex-col gap-[30px]">
         <div
@@ -97,15 +99,15 @@ const prevPage = () => {
           :key="project.id"
           class="flex justify-between w-full"
         >
-          <div class="flex flex-col gap-4 min-w-[300px]">
+          <div class="flex flex-col gap-[60px] min-w-[300px]">
             <div class="flex items-center gap-[15px]">
               <img src="/BlackRomb.svg" alt="Тип" width="12" height="12" />
-              <span class="text-lg">{{ project.type }}</span>
+              <span class="text-lg text-[#0A0A0A]">{{ project.type }}</span>
             </div>
 
-            <div class="flex flex-col gap-2">
-              <p class="text-lg">{{ project.area }} м². {{ project.title }}</p>
-              <p class="text-lg text-white/70">{{ formatPrice(project.price) }}</p>
+            <div class="flex flex-col gap-[60px]">
+              <p class="text-3xl text-[#0A0A0A]">{{ project.area }} м². {{ project.title }}</p>
+              <p class="text-lg text-[#0A0A0A]">{{ formatPrice(project.price) }}</p>
             </div>
           </div>
 
@@ -115,13 +117,14 @@ const prevPage = () => {
               :slides-per-view="1"
               :space-between="0"
               :grab-cursor="true"
+              :loop="true"
               :pagination="{
                 el: `.pagination-${project.id}`,
                 clickable: true,
-                bulletClass: 'swiper-pagination-bullet',
-                bulletActiveClass: 'swiper-pagination-bullet-active',
+                bulletClass: 'swiper-bullet',
+                bulletActiveClass: 'swiper-bullet-active',
                 renderBullet: (index: number, className: string) => {
-                  return `<span class='${className}'><img src='/Romb.svg' alt='Слайд ${index + 1}' width='18' height='18' /></span>`
+                  return `<span class='${className} mr-[15px] last:mr-0 opacity-50 hover:opacity-100 transition-opacity duration-300 cursor-pointer'><img src='/Romb.svg' alt='Слайд ${index + 1}' width='18' height='18' class='block' /></span>`
                 },
               }"
               :navigation="{
@@ -138,21 +141,25 @@ const prevPage = () => {
                 />
               </swiper-slide>
 
-              <div :class="'pagination-' + project.id" class="absolute bottom-[30px] left-[30px] z-10"></div>
+              <div
+                class="absolute bottom-[30px] left-0 right-0 px-[30px] flex flex-row items-end justify-between z-10"
+              >
+                <div :class="'pagination-' + project.id" class="flex flex-row"></div>
 
-              <div class="absolute bottom-[30px] right-[30px] flex gap-2 z-10">
-                <button
-                  :class="'prev-' + project.id"
-                  class="w-10 h-10 rounded-full bg-white/30 flex items-center justify-center hover:bg-white/50 transition-colors"
-                >
-                  <img src="/Arrow2.svg" alt="Предыдущий" class="w-6 h-6" />
-                </button>
-                <button
-                  :class="'next-' + project.id"
-                  class="w-10 h-10 rounded-full bg-white/30 flex items-center justify-center hover:bg-white/50 transition-colors"
-                >
-                  <img src="/Arrow.svg" alt="Следующий" class="w-6 h-6" />
-                </button>
+                <div class="flex gap-2">
+                  <button
+                    :class="'prev-' + project.id"
+                    class="w-10 h-10 rounded-full bg-[#FFFBFC] flex items-center justify-center hover:bg-[#0A0A0A]/5 transition-colors"
+                  >
+                    <img src="/Arrow2.svg" alt="Предыдущий" class="w-6 h-6" />
+                  </button>
+                  <button
+                    :class="'next-' + project.id"
+                    class="w-10 h-10 rounded-full bg-[#FFFBFC] flex items-center justify-center hover:bg-[#0A0A0A]/5 transition-colors"
+                  >
+                    <img src="/Arrow.svg" alt="Следующий" class="w-6 h-6" />
+                  </button>
+                </div>
               </div>
             </swiper>
           </div>
@@ -162,17 +169,17 @@ const prevPage = () => {
       <div class="flex justify-between items-center">
         <div class="flex gap-8 items-center" v-if="!showAllProjects">
           <button
-            class="px-8 py-3 rounded-full border border-white text-lg hover:bg-white/10 transition-colors"
+            class="px-8 py-3 rounded-full border border-[#848386] text-lg hover:bg-[#0A0A0A]/5 transition-colors text-[#0A0A0A]"
             :disabled="currentPage === 0"
             @click="prevPage"
           >
             Пред.
           </button>
 
-          <span class="text-2xl">{{ currentPage + 1 }}</span>
+          <span class="text-2xl text-[#0A0A0A]">{{ currentPage + 1 }}</span>
 
           <button
-            class="px-8 py-3 rounded-full border border-white text-lg hover:bg-white/10 transition-colors"
+            class="px-8 py-3 rounded-full border border-[#848386] text-lg hover:bg-[#0A0A0A]/5 transition-colors text-[#0A0A0A]"
             :disabled="currentPage >= totalPages - 1"
             @click="nextPage"
           >
@@ -180,7 +187,10 @@ const prevPage = () => {
           </button>
         </div>
 
-        <button class="text-lg hover:text-white/70 transition-colors" @click="toggleShowAll">
+        <button 
+          class="text-lg text-[#0A0A0A] hover:text-[#0A0A0A]/70 transition-colors" 
+          @click="toggleShowAll"
+        >
           {{ showAllProjects ? 'Скрыть проекты' : 'Все проекты' }}
         </button>
       </div>
@@ -194,22 +204,7 @@ button:disabled {
   cursor: not-allowed;
 }
 
-.swiper-pagination-bullet {
-  width: auto;
-  height: auto;
-  display: inline-block;
-  background: none;
-  opacity: 0.5;
-  margin: 0 7.5px;
-  cursor: pointer;
-  transition: opacity 0.3s;
-}
-
-.swiper-pagination-bullet img {
-  display: block;
-}
-
-.swiper-pagination-bullet-active {
-  opacity: 1;
+.swiper-bullet-active {
+  opacity: 1 !important;
 }
 </style>

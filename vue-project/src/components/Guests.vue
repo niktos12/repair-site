@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const scrollToTop = () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-};
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
 </script>
 
 <template>
@@ -22,11 +22,14 @@ const scrollToTop = () => {
       <div class="flex flex-row items-center justify-between">
         <div></div>
         <div></div>
-        <button class="bg-white rounded-full p-7 hover:bg-white/70 transition-all duration-300" @click="scrollToTop">
-            <img src="/ArrowUp.svg" alt="Arrow" width="18" height="18" />
+        <button
+          class="bg-white rounded-full p-7 hover:bg-white/70 transition-all duration-300"
+          @click="scrollToTop"
+        >
+          <img src="/ArrowUp.svg" alt="Arrow" width="18" height="18" />
         </button>
         <button
-          class="w-[455px] py-[30px] border border-white/30 rounded-full font-medium leading-[13px] text-lg text-white cursor-pointer transition-all duration-300 hover:bg-white hover:text-black"
+          class="w-[455px] py-[30px] border bg-[#FFFBFC] border-white/30 rounded-full font-medium leading-[13px] text-lg text-[#848386] cursor-pointer transition-all duration-300 hover:bg-white hover:text-black"
         >
           Заказать ремонт
         </button>

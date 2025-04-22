@@ -2,10 +2,10 @@
 
 <template>
   <section class="bg-black text-white py-[50px]">
-    <div class="mx-[50px] flex flex-col gap-[60px]">
-      <h2 class="text-6xl font-normal">Почему мы предоставляем<br />лучшие услуги в Сочи</h2>
-      <div class="w-full h-[1px] bg-[#FFFBFC]"></div>
-      <div class="flex justify-between gap-8 mb-10 items-start">
+    <div class="flex flex-col gap-[60px]">
+      <h2 class="text-6xl font-normal mx-[50px]">Почему мы предоставляем<br />лучшие услуги в Сочи</h2>
+      <div class="w-full h-[1px] bg-[#FFFBFC] opacity-10"></div>
+      <div class="flex justify-between gap-8 mb-10 items-start mx-[50px]">
         <div class="flex flex-row items-center gap-[15px]">
           <img src="/BlackRomb.svg" alt="Romb" width="18" height="18" />
           <p class="text-lg">Преимущества</p>

@@ -25,13 +25,14 @@ const services: ServiceItem[] = [
 </script>
 
 <template>
-  <div class="flex flex-col gap-[60px]  py-20 h-[1000px] justify-center">
+  <div class="flex flex-col gap-[60px]  py-20 h-[1000px] justify-center bg-[#FFFBFC]">
     <h2 class="text-6xl font-medium text-left self-center text-[#40362E]">
       Готовые пакеты услуг, в<br />
       зависимости от количества м²
     </h2>
-    <div class="flex flex-col divide-y divide-white/20">
-      <div class="w-full h-[1px] bg-[#FFFBFC]"></div>
+    <div class="flex flex-col divide-y divide-[#0A0A0A]">
+      <!-- <div class="w-full h-[1px] bg-[#0A0A0A]"></div> -->
+       <div></div>
       <div v-for="service in services" :key="service.title" class="py-8">
         <div class="flex justify-around items-center w-full">
           <div class="flex justify-between items-center w-1/2">
@@ -50,7 +51,7 @@ const services: ServiceItem[] = [
           </div>
         </div>
       </div>
-      <div class="w-full h-[1px] bg-[#FFFBFC]"></div>
+      <div class="w-full h-[1px] bg-[#0A0A0A]"></div>
     </div>
   </div>
 </template>
