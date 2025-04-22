@@ -13,7 +13,7 @@ import Decisions from '../components/Decisions.vue'
 
 <template>
   <div class="flex flex-col">
-    <Header />
+    <Header :is-transparent="true" />
     <Presentation />
   </div>
   <Decisions />
