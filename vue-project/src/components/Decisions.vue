@@ -52,19 +52,23 @@ const onSwiper = (swiper: SwiperType) => {
 </script>
 
 <template>
-  <section class="bg-[#FFFBFC] text-[#0A0A0A] py-[100px]">
-    <div class="mx-[50px] h-[1000px] flex flex-col justify-center">
-      <h2 class="text-6xl font-normal mb-[60px]">
-        Лучшие решения по ремонту и<br />отделке для жителей Сочи!
+  <section class="bg-[#FFFBFC] text-[#0A0A0A] py-8 md:py-[100px]">
+    <!-- md:mx-[50px] -->
+    <div class="px-5  md:h-[1000px] flex flex-col justify-center">
+      <div class="flex flex-col gap-8 md:gap-[60px]">
+        <h2 class="text-2xl md:text-6xl font-normal mx-[50px]">
+        Лучшие решения по ремонту и<br class="hidden md:block" /> отделке для жителей Сочи!
       </h2>
-
-      <div class="flex items-end gap-[290px]">
-        <div class="flex flex-col justify-between h-full">
-          <div class="flex flex-row gap-[15px]">
-            <img src="/BlackRomb.svg" alt="Черный ромб" />
+      <div class="w-full h-[1px] bg-[#0A0A0A] opacity-10 mb-[60px]"></div>
+      </div>
+      
+      <div class="flex flex-col md:flex-row md:items-end md:gap-[290px] mx-[50px]">
+        <div class="flex flex-col justify-between md:h-full">
+          <div class="flex flex-row gap-[15px] items-center mb-8 md:mb-0">
+            <img src="/BlackRomb.svg" alt="Черный ромб" class="w-[18px] h-[18px]" />
             <h3 class="text-lg">Виды работ</h3>
           </div>
-          <div class="flex flex-row gap-[15px]">
+          <div class="hidden md:flex flex-row gap-[15px]">
             <button
               class="decisions-prev w-[73px] h-[73px] border border-[#0A0A0A] rounded-full bg-white/30 flex items-center justify-center hover:bg-white/50 transition-colors"
             >

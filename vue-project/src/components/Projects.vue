@@ -87,7 +87,7 @@ const prevPage = () => {
 </script>
 
 <template>
-  <section class="bg-[#FFFBFC] text-[#0A0A0A] py-[50px]">
+  <section class="bg-[#FFFBFC] text-[#0A0A0A] py-[50px] overflow-hidden">
     <div class="mx-[50px] flex flex-col gap-[60px]">
       <h2 class="text-6xl font-normal text-[#0A0A0A]">
         Наши проекты, выполненные<br />за 10 лет работы
@@ -97,21 +97,21 @@ const prevPage = () => {
         <div
           v-for="project in paginatedProjects"
           :key="project.id"
-          class="flex justify-between w-full"
+          class="flex justify-between w-full max-xs:flex-row flex-row gap-[30px] lg:gap-0 max-2xl:flex-col"
         >
-          <div class="flex flex-col gap-[60px] min-w-[300px]">
+          <div class="flex flex-col gap-[30px] lg:gap-[60px] min-w-[300px] items-center lg:items-start">
             <div class="flex items-center gap-[15px]">
-              <img src="/BlackRomb.svg" alt="Тип" width="12" height="12" />
-              <span class="text-lg text-[#0A0A0A]">{{ project.type }}</span>
+              <img src="/BlackRomb.svg" alt="Тип" width="12" height="12" class="w-4 h-4 md:w-3 md:h-3" />
+              <span class="text-base md:text-lg text-[#0A0A0A]">{{ project.type }}</span>
             </div>
 
-            <div class="flex flex-col gap-[60px]">
-              <p class="text-3xl text-[#0A0A0A]">{{ project.area }} м². {{ project.title }}</p>
-              <p class="text-lg text-[#0A0A0A]">{{ formatPrice(project.price) }}</p>
+            <div class="flex flex-col gap-[30px] md:gap-[60px] items-center md:items-start">
+              <p class="text-2xl md:text-3xl text-[#0A0A0A] text-center md:text-left">{{ project.area }} м². {{ project.title }}</p>
+              <p class="text-base md:text-lg text-[#0A0A0A]">{{ formatPrice(project.price) }}</p>
             </div>
           </div>
 
-          <div class="w-[910px]">
+          <div class="w-full lg:w-[910px]">
             <swiper
               :modules="[Navigation, Pagination]"
               :slides-per-view="1"
@@ -131,7 +131,15 @@ const prevPage = () => {
                 nextEl: `.next-${project.id}`,
                 prevEl: `.prev-${project.id}`,
               }"
-              class="w-full h-[420px] rounded-lg overflow-hidden"
+              :breakpoints="{
+                0: {
+                  slidesPerView: 1.2,
+                  spaceBetween: 10,
+                },
+                1024: {
+                  slidesPerView: 1,
+                },
+              }"
             >
               <swiper-slide v-for="(image, imgIndex) in project.images" :key="imgIndex">
                 <img
@@ -142,7 +150,7 @@ const prevPage = () => {
               </swiper-slide>
 
               <div
-                class="absolute bottom-[30px] left-0 right-0 px-[30px] flex flex-row items-end justify-between z-10"
+                class="absolute bottom-[30px] left-0 right-0 px-[30px] flex-row items-end justify-between z-10 lg:flex hidden"
               >
                 <div :class="'pagination-' + project.id" class="flex flex-row"></div>
 
@@ -166,8 +174,8 @@ const prevPage = () => {
         </div>
       </div>
 
-      <div class="flex justify-between items-center">
-        <div class="flex gap-8 items-center" v-if="!showAllProjects">
+      <div class="flex justify-between items-center flex-col md:flex-row gap-6 md:gap-0">
+        <div class="flex gap-8 items-center order-2 md:order-1" v-if="!showAllProjects">
           <button
             class="px-8 py-3 rounded-full border border-[#848386] text-lg hover:bg-[#0A0A0A]/5 transition-colors text-[#0A0A0A]"
             :disabled="currentPage === 0"
@@ -199,12 +207,18 @@ const prevPage = () => {
 </template>
 
 <style>
+.swiper-bullet-active {
+  opacity: 1 !important;
+}
+
 button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
 
-.swiper-bullet-active {
-  opacity: 1 !important;
+@media (min-width: 1024px) {
+  .swiper {
+    overflow: hidden !important;
+  }
 }
 </style>
