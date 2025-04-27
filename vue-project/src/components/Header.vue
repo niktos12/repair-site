@@ -33,9 +33,13 @@ onUnmounted(() => {
   <div
     class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
     :class="[
-      isScrolled 
-        ? (props.isTransparent ? 'bg-white shadow-md' : 'bg-gray-50 shadow-md') 
-        : (props.isTransparent ? 'bg-transparent' : 'bg-white')
+      isScrolled
+        ? props.isTransparent
+          ? 'bg-white shadow-md'
+          : 'bg-gray-50 shadow-md'
+        : props.isTransparent
+          ? 'bg-transparent'
+          : 'bg-white',
     ]"
   >
     <div class="flex justify-between items-center py-2.5 px-[50px] max-lg:px-5">
@@ -103,7 +107,7 @@ onUnmounted(() => {
           ]"
         ></span>
         <span
-          class="w-6 h-0.5 transition-opacity duration-300"
+          class="w-6 h-0.5 transition-all duration-300"
           :class="[isScrolled ? 'bg-black' : 'bg-white', isMenuOpen ? 'opacity-0' : '']"
         ></span>
         <span
@@ -120,26 +124,19 @@ onUnmounted(() => {
       class="hidden max-lg:block transition-all duration-300 overflow-hidden fixed top-0 left-0 right-0 bottom-0 z-40"
       :class="[
         isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none',
-        isScrolled || !props.isTransparent ? 'bg-white' : 'bg-white'
+        isScrolled || !props.isTransparent ? 'bg-white' : 'bg-white',
       ]"
     >
-      <div class="px-5 py-4 flex flex-col">
+      <div class="px-5 py-2.5 flex flex-col">
         <div class="flex justify-between items-center mb-8">
           <div class="flex items-end gap-3">
-            <img
-              src="/ExcludeBlack.svg"
-              alt="logo"
-              width="58"
-              height="47"
-            />
+            <img src="/ExcludeBlack.svg" alt="logo" width="58" height="47" />
             <p class="leading-none text-xl text-black">
               Сочи <br />
               Ремонт
             </p>
           </div>
-          <button class="text-lg text-black" @click="toggleMenu">
-            Закрыть
-          </button>
+          <button class="text-lg text-black underline" @click="toggleMenu">Закрыть</button>
         </div>
 
         <nav class="flex flex-col gap-6 mb-auto">
@@ -164,34 +161,51 @@ onUnmounted(() => {
 
         <div class="mt-auto pt-8">
           <div class="mb-6">
-            <p class="text-sm text-gray-500 mb-1">E-mail</p>
-            <a href="mailto:sochi-repair@gmail.com" class="text-black">sochi-repair@gmail.com</a>
+            <p class="text-sm text-black mb-1">E-mail</p>
+            <a href="mailto:sochi-repair@gmail.com" class="text-[#848386] underline"
+              >sochi-repair@gmail.com</a
+            >
           </div>
 
           <div class="mb-6">
-            <p class="text-sm text-gray-500 mb-1">Номер телефона</p>
-            <a href="tel:+79317240942" class="text-black">+7 (931) 724 09 42</a>
+            <p class="text-sm text-black mb-1">Номер телефона</p>
+            <a href="tel:+79317240942" class="text-[#848386] underline">+7 (931) 724 09 42</a>
           </div>
 
           <div class="flex gap-4 mb-6">
-            <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-200">
+            <a
+              href="#"
+              class="w-10 h-10 flex items-center justify-center rounded-full border border-[#848386]"
+            >
               <img src="/VK.svg" alt="VK" class="w-5 h-5" />
             </a>
-            <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-200">
+            <a
+              href="#"
+              class="w-10 h-10 flex items-center justify-center rounded-full border border-[#848386]"
+            >
               <img src="/Telegram.svg" alt="Telegram" class="w-5 h-5" />
             </a>
-            <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-200">
+            <a
+              href="#"
+              class="w-10 h-10 flex items-center justify-center rounded-full border border-[#848386]"
+            >
               <img src="/WhatsApp.svg" alt="WhatsApp" class="w-5 h-5" />
             </a>
-            <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-200">
+            <a
+              href="#"
+              class="w-10 h-10 flex items-center justify-center rounded-full border border-[#848386]"
+            >
               <img src="/Youtube.svg" alt="YouTube" class="w-5 h-5" />
             </a>
-            <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-200">
+            <a
+              href="#"
+              class="w-10 h-10 flex items-center justify-center rounded-full border border-[#848386]"
+            >
               <img src="/OK.svg" alt="Одноклассники" class="w-5 h-5" />
             </a>
           </div>
 
-          <button class="w-full py-4 border border-gray-200 rounded-lg text-black">
+          <button class="w-full py-4 border border-[#848386] rounded-full text-black">
             Обратный звонок
           </button>
         </div>

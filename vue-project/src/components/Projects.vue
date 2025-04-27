@@ -88,26 +88,26 @@ const prevPage = () => {
 
 <template>
   <section class="bg-[#FFFBFC] text-[#0A0A0A] py-[50px] overflow-hidden">
-    <div class="mx-[50px] flex flex-col gap-[60px]">
-      <h2 class="text-6xl font-normal text-[#0A0A0A]">
-        Наши проекты, выполненные<br />за 10 лет работы
+    <div class="flex flex-col gap-[60px]">
+      <h2 class="text-6xl font-normal text-[#0A0A0A] max-md:text-4xl mx-[50px]">
+        Наши проекты, выполненные<br class="max-md:hidden"/> за 10 лет работы
       </h2>
-
-      <div class="flex flex-col gap-[30px]">
+      <div class="h-[1px] bg-[#0A0A0A] opacity-10 w-full"></div>
+      <div class="flex flex-col gap-[30px] lg:mx-[50px] max-lg:ml-[50px]">
         <div
           v-for="project in paginatedProjects"
           :key="project.id"
           class="flex justify-between w-full max-xs:flex-row flex-row gap-[30px] lg:gap-0 max-2xl:flex-col"
         >
-          <div class="flex flex-col gap-[30px] lg:gap-[60px] min-w-[300px] items-center lg:items-start">
+          <div class="flex flex-col gap-[30px] lg:gap-[60px] min-w-[300px] items-center xs:items-start">
             <div class="flex items-center gap-[15px]">
               <img src="/BlackRomb.svg" alt="Тип" width="12" height="12" class="w-4 h-4 md:w-3 md:h-3" />
               <span class="text-base md:text-lg text-[#0A0A0A]">{{ project.type }}</span>
             </div>
 
-            <div class="flex flex-col gap-[30px] md:gap-[60px] items-center md:items-start">
-              <p class="text-2xl md:text-3xl text-[#0A0A0A] text-center md:text-left">{{ project.area }} м². {{ project.title }}</p>
-              <p class="text-base md:text-lg text-[#0A0A0A]">{{ formatPrice(project.price) }}</p>
+            <div class="flex flex-col gap-[30px] md:gap-[60px] items-center xs:items-start break-words">
+              <p class="text-2xl md:text-3xl text-[#0A0A0A] text-center xs:text-left">{{ project.area }} м². {{ project.title }}</p>
+              <p class="text-base md:text-lg text-[#0A0A0A] mb-[30px]">{{ formatPrice(project.price) }}</p>
             </div>
           </div>
 
@@ -135,6 +135,7 @@ const prevPage = () => {
                 0: {
                   slidesPerView: 1.2,
                   spaceBetween: 10,
+                  
                 },
                 1024: {
                   slidesPerView: 1,
@@ -145,7 +146,7 @@ const prevPage = () => {
                 <img
                   :src="image"
                   :alt="'Проект ' + project.id + ' фото ' + (imgIndex + 1)"
-                  class="w-full h-full object-cover"
+                  class="w-full h-full object-cover max-megasm:h-[240px] max-megasm:w-[310px]"
                 />
               </swiper-slide>
 
@@ -174,7 +175,7 @@ const prevPage = () => {
         </div>
       </div>
 
-      <div class="flex justify-between items-center flex-col md:flex-row gap-6 md:gap-0">
+      <div class="flex justify-between items-center flex-col md:flex-row gap-6 md:gap-0 mx-[50px]">
         <div class="flex gap-8 items-center order-2 md:order-1" v-if="!showAllProjects">
           <button
             class="px-8 py-3 rounded-full border border-[#848386] text-lg hover:bg-[#0A0A0A]/5 transition-colors text-[#0A0A0A]"

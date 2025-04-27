@@ -52,23 +52,22 @@ const onSwiper = (swiper: SwiperType) => {
 </script>
 
 <template>
-  <section class="bg-[#FFFBFC] text-[#0A0A0A] py-8 md:py-[100px]">
-    <!-- md:mx-[50px] -->
-    <div class="px-5  md:h-[1000px] flex flex-col justify-center">
-      <div class="flex flex-col gap-8 md:gap-[60px]">
-        <h2 class="text-2xl md:text-6xl font-normal mx-[50px]">
-        Лучшие решения по ремонту и<br class="hidden md:block" /> отделке для жителей Сочи!
+  <section class="bg-[#FFFBFC] text-[#0A0A0A] py-8 xl:py-[100px]">
+    <div class="xl:h-[1000px] flex flex-col justify-center">
+      <div class="flex flex-col gap-8 xl:gap-[60px]">
+        <h2 class="text-2xl lg:text-6xl font-normal mx-[50px]">
+        Лучшие решения по ремонту и<br class="hidden xl:block" /> отделке для жителей Сочи!
       </h2>
       <div class="w-full h-[1px] bg-[#0A0A0A] opacity-10 mb-[60px]"></div>
       </div>
       
-      <div class="flex flex-col md:flex-row md:items-end md:gap-[290px] mx-[50px]">
-        <div class="flex flex-col justify-between md:h-full">
-          <div class="flex flex-row gap-[15px] items-center mb-8 md:mb-0">
+      <div class="flex flex-col xl:flex-row xl:items-end xl:gap-[290px] mx-[50px]">
+        <div class="flex flex-col justify-between xl:h-full">
+          <div class="flex flex-row gap-[15px] items-center mb-8 xl:mb-0">
             <img src="/BlackRomb.svg" alt="Черный ромб" class="w-[18px] h-[18px]" />
             <h3 class="text-lg">Виды работ</h3>
           </div>
-          <div class="hidden md:flex flex-row gap-[15px]">
+          <div class="hidden xl:flex flex-row gap-[15px]">
             <button
               class="decisions-prev w-[73px] h-[73px] border border-[#0A0A0A] rounded-full bg-white/30 flex items-center justify-center hover:bg-white/50 transition-colors"
             >
@@ -84,7 +83,8 @@ const onSwiper = (swiper: SwiperType) => {
 
         <swiper
           :modules="[Navigation, Pagination]"
-          :slides-per-view="3"
+          
+          :breakpoints="{ 0: { slidesPerView: 1.2 }, 640: { slidesPerView: 2 }, 1526: { slidesPerView: 3 } }"
           :space-between="10"
           :grab-cursor="true"
           :loop="true"
@@ -113,6 +113,11 @@ const onSwiper = (swiper: SwiperType) => {
           </swiper-slide>
         </swiper>
       </div>
+      <div class="h-[1px] bg-[#0A0A0A] opacity-10 w-full mt-[60px]"></div>
+      <button class="mx-[50px]  xl:w-[455px] xl:self-end  border border-[#848386] rounded-full text-lg text-[#848386] h-[73px]  mt-[60px] xl:mr-[50px]">
+        <span class="lg:hidden">Подробнее</span>
+        <span class="hidden lg:block">Заказать ремонт</span>
+      </button>
     </div>
   </section>
 </template>
