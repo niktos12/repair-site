@@ -1,16 +1,20 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
+import OrderFormModal from './OrderFormModal.vue'
 
 interface Props {
   isTransparent?: boolean
+  colorScheme?: 'white' | 'black'
 }
 
 const props = withDefaults(defineProps<Props>(), {
   isTransparent: false,
+  colorScheme: 'white',
 })
 
 const isScrolled = ref(false)
 const isMenuOpen = ref(false)
+const isOrderModalOpen = ref(false)
 
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 0
@@ -45,13 +49,21 @@ onUnmounted(() => {
     <div class="flex justify-between items-center py-2.5 px-[50px] max-lg:px-5">
       <div class="flex items-end gap-3">
         <img
-          :src="isScrolled ? '/ExcludeBlack.svg' : '/Exclude.svg'"
+          :src="
+            (isScrolled && props.isTransparent) || props.colorScheme === 'black'
+              ? '/ExcludeBlack.svg'
+              : '/Exclude.svg'
+          "
           alt="logo"
           width="58"
           height="47"
           class="transition-all duration-300"
         />
-        <p class="leading-none text-xl" :class="[isScrolled ? 'text-black' : 'text-white']">
+        <p class="leading-none text-xl" :class="[
+          (isScrolled && props.isTransparent) || props.colorScheme === 'black'
+            ? 'text-black'
+            : 'text-white'
+        ]">
           Сочи <br />
           Ремонт
         </p>
@@ -70,7 +82,9 @@ onUnmounted(() => {
           :to="path"
           class="text-lg transition-colors duration-300"
           :class="[
-            isScrolled ? 'text-black hover:text-blue-600' : 'text-white hover:text-blue-400',
+            (isScrolled && props.isTransparent) || props.colorScheme === 'black'
+              ? 'text-black hover:text-blue-600'
+              : 'text-white hover:text-blue-400',
           ]"
         >
           {{ link }}
@@ -81,39 +95,52 @@ onUnmounted(() => {
         <a
           class="text-lg transition-colors duration-300 underline"
           :class="[
-            isScrolled ? 'text-black hover:text-blue-600' : 'text-white hover:text-blue-400',
+            (isScrolled && props.isTransparent) || props.colorScheme === 'black'
+              ? 'text-black hover:text-blue-600'
+              : 'text-white hover:text-blue-400',
           ]"
           href="tel:+79317240942"
         >
           +7 (931) 724 09 42
         </a>
-        <router-link
+        <button
           class="text-lg transition-colors duration-300 underline"
           :class="[
-            isScrolled ? 'text-black hover:text-blue-600' : 'text-white hover:text-blue-400',
+            (isScrolled && props.isTransparent) || props.colorScheme === 'black'
+              ? 'text-black hover:text-blue-600'
+              : 'text-white hover:text-blue-400',
           ]"
-          to="/order"
+          @click="isOrderModalOpen = true"
         >
           Оформить заявку
-        </router-link>
+        </button>
       </div>
 
       <button class="hidden max-lg:flex flex-col gap-1.5 p-2" @click="toggleMenu">
         <span
           class="w-6 h-0.5 transition-all duration-300"
           :class="[
-            isScrolled ? 'bg-black' : 'bg-white',
+            (isScrolled && props.isTransparent) || props.colorScheme === 'black'
+              ? 'bg-black'
+              : 'bg-white',
             isMenuOpen ? 'transform rotate-45 translate-y-2' : '',
           ]"
         ></span>
         <span
           class="w-6 h-0.5 transition-all duration-300"
-          :class="[isScrolled ? 'bg-black' : 'bg-white', isMenuOpen ? 'opacity-0' : '']"
+          :class="[
+            (isScrolled && props.isTransparent) || props.colorScheme === 'black'
+              ? 'bg-black'
+              : 'bg-white',
+            isMenuOpen ? 'opacity-0' : '',
+          ]"
         ></span>
         <span
           class="w-6 h-0.5 transition-all duration-300"
           :class="[
-            isScrolled ? 'bg-black' : 'bg-white',
+            (isScrolled && props.isTransparent) || props.colorScheme === 'black'
+              ? 'bg-black'
+              : 'bg-white',
             isMenuOpen ? 'transform -rotate-45 -translate-y-2' : '',
           ]"
         ></span>
@@ -130,8 +157,21 @@ onUnmounted(() => {
       <div class="px-5 py-2.5 flex flex-col">
         <div class="flex justify-between items-center mb-8">
           <div class="flex items-end gap-3">
-            <img src="/ExcludeBlack.svg" alt="logo" width="58" height="47" />
-            <p class="leading-none text-xl text-black">
+            <img
+              :src="
+                (isScrolled && props.isTransparent) || props.colorScheme === 'black'
+                  ? '/ExcludeBlack.svg'
+                  : '/Exclude.svg'
+              "
+              alt="logo"
+              width="58"
+              height="47"
+            />
+            <p class="leading-none text-xl" :class="[
+              (isScrolled && props.isTransparent) || props.colorScheme === 'black'
+                ? 'text-black'
+                : 'text-white'
+            ]">
               Сочи <br />
               Ремонт
             </p>
@@ -162,44 +202,87 @@ onUnmounted(() => {
         <div class="mt-auto pt-8">
           <div class="mb-6">
             <p class="text-sm text-black mb-1">E-mail</p>
-            <a href="mailto:sochi-repair@gmail.com" class="text-[#848386] underline"
-              >sochi-repair@gmail.com</a
+            <a
+              href="mailto:sochi-repair@gmail.com"
+              class="text-[#848386] underline"
+              :class="[
+                (isScrolled && props.isTransparent) || props.colorScheme === 'black'
+                  ? 'text-black'
+                  : 'text-white'
+              ]"
             >
+              sochi-repair@gmail.com
+            </a>
           </div>
 
           <div class="mb-6">
             <p class="text-sm text-black mb-1">Номер телефона</p>
-            <a href="tel:+79317240942" class="text-[#848386] underline">+7 (931) 724 09 42</a>
+            <a
+              href="tel:+79317240942"
+              class="text-[#848386] underline"
+              :class="[
+                (isScrolled && props.isTransparent) || props.colorScheme === 'black'
+                  ? 'text-black'
+                  : 'text-white'
+              ]"
+            >
+              +7 (931) 724 09 42
+            </a>
           </div>
 
           <div class="flex gap-4 mb-6">
             <a
               href="#"
               class="w-10 h-10 flex items-center justify-center rounded-full border border-[#848386]"
+              :class="[
+                (isScrolled && props.isTransparent) || props.colorScheme === 'black'
+                  ? 'border-black'
+                  : 'border-white'
+              ]"
             >
               <img src="/VK.svg" alt="VK" class="w-5 h-5" />
             </a>
             <a
               href="#"
               class="w-10 h-10 flex items-center justify-center rounded-full border border-[#848386]"
+              :class="[
+                (isScrolled && props.isTransparent) || props.colorScheme === 'black'
+                  ? 'border-black'
+                  : 'border-white'
+              ]"
             >
               <img src="/Telegram.svg" alt="Telegram" class="w-5 h-5" />
             </a>
             <a
               href="#"
               class="w-10 h-10 flex items-center justify-center rounded-full border border-[#848386]"
+              :class="[
+                (isScrolled && props.isTransparent) || props.colorScheme === 'black'
+                  ? 'border-black'
+                  : 'border-white'
+              ]"
             >
               <img src="/WhatsApp.svg" alt="WhatsApp" class="w-5 h-5" />
             </a>
             <a
               href="#"
               class="w-10 h-10 flex items-center justify-center rounded-full border border-[#848386]"
+              :class="[
+                (isScrolled && props.isTransparent) || props.colorScheme === 'black'
+                  ? 'border-black'
+                  : 'border-white'
+              ]"
             >
               <img src="/Youtube.svg" alt="YouTube" class="w-5 h-5" />
             </a>
             <a
               href="#"
               class="w-10 h-10 flex items-center justify-center rounded-full border border-[#848386]"
+              :class="[
+                (isScrolled && props.isTransparent) || props.colorScheme === 'black'
+                  ? 'border-black'
+                  : 'border-white'
+              ]"
             >
               <img src="/OK.svg" alt="Одноклассники" class="w-5 h-5" />
             </a>
@@ -212,6 +295,7 @@ onUnmounted(() => {
       </div>
     </div>
   </div>
+  <OrderFormModal v-model="isOrderModalOpen" />
 </template>
 
 <style scoped></style>

@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Main from '../pages/Main.vue'
 import Catalog from '../pages/Catalog.vue'
+import Success from '../pages/Success.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -14,6 +15,11 @@ const router = createRouter({
       path: '/catalog',
       name: 'catalog',
       component: Catalog
+    },
+    {
+      path: '/success',
+      name: 'success',
+      component: Success
     },
     // {
     //   path: '/portfolio',
