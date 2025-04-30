@@ -48,25 +48,27 @@ onUnmounted(() => {
   >
     <div class="flex justify-between items-center py-2.5 px-[50px] max-lg:px-5">
       <div class="flex items-end gap-3">
-        <img
-          :src="
+        <router-link to="/" class="flex items-end gap-3 group cursor-pointer">
+          <img
+            :src="
+              (isScrolled && props.isTransparent) || props.colorScheme === 'black'
+                ? '/ExcludeBlack.svg'
+                : '/Exclude.svg'
+            "
+            alt="logo"
+            width="58"
+            height="47"
+            class="transition-all duration-300 group-hover:opacity-80"
+          />
+          <p class="leading-none text-xl transition-colors duration-200 group-hover:text-[#40362E]" :class="[
             (isScrolled && props.isTransparent) || props.colorScheme === 'black'
-              ? '/ExcludeBlack.svg'
-              : '/Exclude.svg'
-          "
-          alt="logo"
-          width="58"
-          height="47"
-          class="transition-all duration-300"
-        />
-        <p class="leading-none text-xl" :class="[
-          (isScrolled && props.isTransparent) || props.colorScheme === 'black'
-            ? 'text-black'
-            : 'text-white'
-        ]">
-          Сочи <br />
-          Ремонт
-        </p>
+              ? 'text-black'
+              : 'text-white'
+          ]">
+            Сочи <br />
+            Ремонт
+          </p>
+        </router-link>
       </div>
 
       <div class="flex flex-row gap-[30px] items-center max-lg:hidden">
