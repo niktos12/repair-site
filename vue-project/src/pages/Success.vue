@@ -9,7 +9,7 @@ function goHome() {
 </script>
 
 <template>
-  <div class="bg-white min-h-screen flex flex-col">
+  <div class="bg-[#FFFBFC] min-h-screen flex flex-col">
     <Header is-transparent="true" color-scheme="black" />
     <div class="flex flex-col flex-1 justify-between">
       <div>
