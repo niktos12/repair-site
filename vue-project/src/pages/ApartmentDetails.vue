@@ -103,7 +103,7 @@ onMounted(() => {
       >
         <div class="px-[50px] max-sm:px-[20px]  w-full">
           <p
-            class="text-sm max-sm:text-base text-[#A6A6A6] hover:text-[#3C332D] cursor-pointer underline w-fit mb-2"
+            class="text-sm max-sm:text-base text-[#A6A6A6] hover:text-[#40362E] cursor-pointer underline w-fit mb-2 transition-colors duration-200"
             @click="$router.back()"
           >
             Назад
@@ -127,7 +127,7 @@ onMounted(() => {
             >
 
             <button
-              class="border border-[#848386] rounded-full w-full sm:w-[320px] md:w-[455px] h-[48px] sm:h-[56px] md:h-[73px] px-4 sm:px-8 py-2 sm:py-3 text-base sm:text-lg text-[#848386] bg-transparent transition hover:bg-[#3C332D] hover:text-white"
+              class="border border-[#848386] rounded-full w-full sm:w-[320px] md:w-[455px] h-[48px] sm:h-[56px] md:h-[73px] px-4 sm:px-8 py-2 sm:py-3 text-base sm:text-lg text-[#848386] bg-transparent transition hover:bg-[#3C332D] hover:text-white hover:border-[#3C332D] focus:ring-2 focus:ring-[#3C332D] focus:outline-none"
             >
               Заказать ремонт
             </button>
@@ -156,7 +156,7 @@ onMounted(() => {
             { id: 4, title: 'Евроремонт', price: 14000, type: 'Евроремонт', image: '/flatbg.svg' },
           ]"
           :key="other.id"
-          class="relative group cursor-pointer w-full border-b border-[#E6E6E6] last:border-b-0 transition-colors duration-300 py-4 sm:py-6"
+          class="relative group cursor-pointer w-full border-b border-[#E6E6E6] last:border-b-0 transition-colors duration-300 py-4 sm:py-6 hover:bg-[#40362E]"
           :class="{ 'bg-[#40362E]': hoveredIdx === idx, 'bg-white': hoveredIdx !== idx }"
           @mouseenter="hoveredIdx = idx"
           @mouseleave="hoveredIdx = null"
@@ -182,7 +182,7 @@ onMounted(() => {
             <span class="text-sm sm:text-lg mr-4 whitespace-nowrap  max-sm:ml-[15px]">от {{ other.price.toLocaleString() }} ₽ за м²</span>
             <router-link
               :to="`/catalog/${other.id}`"
-              class="text-xs sm:text-[13px] transition-all duration-300 mr-4 underline  max-sm:ml-[15px]"
+              class="text-xs sm:text-[13px] transition-all duration-300 mr-4 underline  max-sm:ml-[15px] hover:text-[#40362E] focus:text-[#3C332D]"
               :class="
                 hoveredIdx === idx
                   ? 'text-white hover:text-white'
