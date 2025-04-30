@@ -188,7 +188,6 @@ function resetFilter() {
   <div class="bg-[#FFFBFC] min-h-screen w-full">
     <Header color-scheme="black" />
     <div class="container mx-auto px-4 py-8 pt-[200px] max-md:pt-[100px] w-full bg-[#FFFBFC]">
-      <!-- Хлебные крошки -->
       <div class="text-lg md:text-base sm:text-sm text-[#A6A6A6] mb-6">
         <span>Главная</span>
         <span class="mx-2">/</span>
@@ -201,7 +200,6 @@ function resetFilter() {
         Каталог
       </h1>
 
-      <!-- Навигация -->
       <nav
         class="flex flex-wrap gap-8 md:gap-4 sm:gap-2 mb-8 text-[20px] md:text-[16px] sm:text-[14px] text-[#A6A6A6]"
       >
@@ -232,7 +230,6 @@ function resetFilter() {
         <a href="#" class="hover:text-[#3C332D] transition-colors duration-200">Ремонт коттеджей</a>
       </nav>
 
-      <!-- Поиск -->
       <div class="relative mb-12 w-full max-w-[700px] md:max-w-[500px] sm:max-w-[300px]">
         <input
           type="text"
@@ -254,7 +251,6 @@ function resetFilter() {
       </div>
     </div>
 
-    <!-- Квартиры и пагинация w-full вне .container -->
     <div class="w-full relative">
       <div class="w-full">
         <div class="w-full h-[1px] bg-[#000000] opacity-10"></div>

@@ -1,7 +1,6 @@
 <script setup lang="ts"></script>
 
 <template>
-  <!-- Дефолтный блок для мобильных -->
   <section class="bg-[#FFFBFC] text-black py-[50px] block max-md:hidden">
     <div class="mx-[50px] flex flex-col gap-[60px]">
       <div class="flex justify-between items-start">

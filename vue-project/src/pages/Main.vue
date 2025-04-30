@@ -27,5 +27,4 @@ import Decisions from '../components/Decisions.vue'
 </template>
 
 <style scoped>
-/* Стили для компонента */
 </style>

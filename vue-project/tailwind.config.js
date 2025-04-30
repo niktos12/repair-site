@@ -9,6 +9,9 @@ export default {
         'xsm':'425px',
         'xs': '320px',
       },
+      fontFamily: {
+        sans: ['Manrope', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      },
     },
   },
   plugins: [],

@@ -288,7 +288,7 @@ onUnmounted(() => {
             </a>
           </div>
 
-          <button class="w-full py-4 border border-[#848386] rounded-full text-black">
+          <button class="w-full py-4 border border-[#848386] rounded-full text-black" @click="isOrderModalOpen = true">
             Обратный звонок
           </button>
         </div>

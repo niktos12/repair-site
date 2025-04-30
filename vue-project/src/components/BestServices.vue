@@ -20,12 +20,10 @@ const advantages = [
           <p class="text-base md:text-lg">Преимущества</p>
         </div>
         <div class="flex flex-col gap-8 md:gap-[30px] w-full">
-          <!-- Версия до 1024px -->
           <div class="block lg:hidden w-full">
             <img src="/circles.svg" alt="Преимущества" class="w-full max-w-[345px] mx-auto" />
           </div>
 
-          <!-- Планшетная и десктопная версия (1024px - 1620px) -->
           <div class="hidden lg:flex 3xl:hidden flex-row gap-5 justify-center">
             <div v-for="(advantage, index) in advantages" :key="index"
               class="w-[250px] h-[250px] xl:w-[300px] xl:h-[300px] 2xl:w-[350px] 2xl:h-[350px] border border-white/30 rounded-full flex items-center justify-center text-center transition-all duration-300 hover:bg-[#4A4235]"
@@ -35,7 +33,6 @@ const advantages = [
             </div>
           </div>
 
-          <!-- Большая десктопная версия (1620px и больше) -->
           <div class="hidden 3xl:flex flex-row gap-[30px] justify-center">
             <div v-for="(advantage, index) in advantages" :key="index"
               class="w-[428px] h-[428px] border border-white/30 rounded-full flex items-center justify-center text-center transition-all duration-300 hover:bg-[#4A4235]"

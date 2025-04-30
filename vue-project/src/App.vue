@@ -3,5 +3,7 @@
 </script>
 
 <template>
-  <router-view />
+  <div class="font-sans">
+    <router-view />
+  </div>
 </template>

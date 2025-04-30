@@ -1,8 +1,8 @@
 <template>
   <Transition name="modal-fade">
-    <div v-if="modelValue" class="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/50">
+    <div v-if="modelValue" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
       <div
-        class="relative w-full max-w-[900px] bg-white sm:bg-[#FFFBFC] sm:shadow-xl min-h-[80vh] sm:min-h-0 fixed bottom-0 left-0 right-0 rounded-t-2xl shadow-none flex flex-col items-center sm:static sm:rounded-2xl sm:p-0 modal-content"
+        class="relative w-full max-w-[900px] bg-white sm:bg-[#FFFBFC] sm:shadow-xl min-h-[80vh] rounded-[3px] max-sm:min-h-fit sm:min-h-0  fixed bottom-0 left-0 right-0  shadow-none flex flex-col items-center sm:static  sm:p-0 modal-content"
       >
         <!-- Шапка: заголовок + кнопка 'Закрыть' -->
         <div class="flex items-center justify-between w-full px-4 pt-6 pb-4 border-b border-[#E6E1DD] sm:hidden">
@@ -11,7 +11,7 @@
         </div>
         <!-- Десктопная шапка -->
         <div class="hidden sm:block w-full px-12 pt-12 pb-2 relative">
-          <button class="absolute top-0 right-0 mt-2 mr-2 text-3xl text-[#C1BCB8] hover:text-[#40362E] transition-colors" @click="$emit('update:modelValue', false)">&times;</button>
+          <button class="absolute top-0 right-0 mt-[60px] mr-[60px] text-3xl text-[#C1BCB8] hover:text-[#40362E] transition-colors" @click="$emit('update:modelValue', false)">&times;</button>
           <h2 class="text-[64px] leading-[1.1] font-normal text-[#40362E] mb-8 text-left">Оформить заявку</h2>
         </div>
         <!-- Форма -->
