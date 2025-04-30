@@ -324,7 +324,7 @@ function resetFilter() {
 
       <!-- Пагинация -->
       <div
-        class="flex items-center bg-white w-auto mt-[50px] mr-[50px] md:absolute md:right-0 max-md:mr-[20px] sm:justify-end justify-center md:w-full "
+        class="flex items-center bg-white w-auto mt-[50px] mr-[50px] md:absolute md:right-0 max-md:mr-0 sm:justify-end justify-center md:w-full "
       >
         <button
           class="px-8 py-3 md:px-6 md:py-2  rounded-full border border-[#848386] text-lg md:text-base  hover:bg-[#0A0A0A]/5 transition-colors text-[#0A0A0A]"
