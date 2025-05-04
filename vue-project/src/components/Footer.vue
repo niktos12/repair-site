@@ -1,4 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from 'vue'
+import OrderFormModal from './OrderFormModal.vue'
+
+const isOrderModalOpen = ref(false)
+</script>
 
 <template>
   <footer class="bg-[#FFFBFC] text-[#0A0A0A] py-[30px] md:py-[50px]">
@@ -156,6 +161,7 @@
 
             <button
               class="w-full 3xl:w-[455px] py-[20px] md:py-[30px] leading-[13px] border border-[#848386] rounded-full font-medium text-base md:text-lg cursor-pointer transition-all duration-300 hover:bg-[#0A0A0A] hover:text-white hover:border-[#0A0A0A]"
+              @click="isOrderModalOpen = true"
             >
               Обратный звонок
             </button>
@@ -164,4 +170,5 @@
       </div>
     </div>
   </footer>
+  <OrderFormModal v-model="isOrderModalOpen" />
 </template>

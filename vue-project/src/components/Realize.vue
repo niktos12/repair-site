@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+import OrderFormModal from './OrderFormModal.vue'
+
+const isOrderModalOpen = ref(false)
 </script>
 
 <template>
@@ -14,12 +18,14 @@
       <div class="flex justify-end">
         <button
           class="bg-[#FFFBFC] text-black text-lg  w-[455px] py-7 rounded-full hover:bg-gray-100 transition-colors duration-300"
+          @click="isOrderModalOpen = true"
         >
           Заказать ремонт
         </button>
       </div>
     </div>
   </section>
+  <OrderFormModal v-model="isOrderModalOpen" />
 </template>
 
 <style scoped>

@@ -3,6 +3,7 @@ import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
+import OrderFormModal from '../components/OrderFormModal.vue'
 
 const route = useRoute()
 const apartmentId = parseInt(route.params.id as string)
@@ -19,6 +20,7 @@ interface Apartment {
 
 const apartment = ref<Apartment | null>(null)
 const hoveredIdx = ref<number | null>(null)
+const isOrderModalOpen = ref(false)
 
 onMounted(() => {
   const apartmentData = {
@@ -128,6 +130,7 @@ onMounted(() => {
 
             <button
               class="border border-[#848386] rounded-full w-full sm:w-[320px] md:w-[455px] h-[48px] sm:h-[56px] md:h-[73px] px-4 sm:px-8 py-2 sm:py-3 text-base sm:text-lg text-[#848386] bg-transparent transition hover:bg-[#3C332D] hover:text-white hover:border-[#3C332D] focus:ring-2 focus:ring-[#3C332D] focus:outline-none"
+              @click="isOrderModalOpen = true"
             >
               Заказать ремонт
             </button>
@@ -211,6 +214,7 @@ onMounted(() => {
     </div>
     <Footer />
   </div>
+  <OrderFormModal v-model="isOrderModalOpen" />
 </template>
 
 <style scoped>

@@ -1,4 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from 'vue'
+import OrderFormModal from './OrderFormModal.vue'
+
+const isOrderModalOpen = ref(false)
+</script>
 
 <template>
   <section class="bg-[url('/mainbg.svg')] bg-cover bg-center">
@@ -24,10 +29,11 @@
           <br />
           отделке и проектированию
         </p>
-        <button class="w-full md:w-auto bg-[#FFFBFC] text-black text-lg px-8 md:px-[141px] py-4 md:py-7 rounded-full hover:bg-gray-100 transition-colors duration-300">
+        <button class="w-full md:w-auto bg-[#FFFBFC] text-black text-lg px-8 md:px-[141px] py-4 md:py-7 rounded-full hover:bg-gray-100 transition-colors duration-300" @click="isOrderModalOpen = true">
           Заказать ремонт
         </button>
       </div>
     </div>
   </section>
+  <OrderFormModal v-model="isOrderModalOpen" />
 </template>

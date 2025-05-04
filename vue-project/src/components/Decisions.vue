@@ -56,11 +56,12 @@ const onSwiper = (swiper: SwiperType) => {
     <div class="xl:h-[1000px] flex flex-col justify-center">
       <div class="flex flex-col gap-8 xl:gap-[60px]">
         <h2 class="text-2xl lg:text-6xl font-normal mx-[50px]">
-        Лучшие решения по ремонту и<br class="hidden xl:block" /> отделке для жителей Сочи!
-      </h2>
-      <div class="w-full h-[1px] bg-[#0A0A0A] opacity-10 mb-[60px]"></div>
+          Лучшие решения по ремонту и<br class="hidden xl:block" />
+          отделке для жителей Сочи!
+        </h2>
+        <div class="w-full h-[1px] bg-[#0A0A0A] opacity-10 mb-[60px]"></div>
       </div>
-      
+
       <div class="flex flex-col xl:flex-row xl:items-end xl:gap-[290px] mx-[50px]">
         <div class="flex flex-col justify-between xl:h-full">
           <div class="flex flex-row gap-[15px] items-center mb-8 xl:mb-0">
@@ -83,8 +84,11 @@ const onSwiper = (swiper: SwiperType) => {
 
         <swiper
           :modules="[Navigation, Pagination]"
-          
-          :breakpoints="{ 0: { slidesPerView: 1.2 }, 640: { slidesPerView: 2 }, 1526: { slidesPerView: 3 } }"
+          :breakpoints="{
+            0: { slidesPerView: 1.2 },
+            640: { slidesPerView: 2 },
+            1526: { slidesPerView: 3 },
+          }"
           :space-between="10"
           :grab-cursor="true"
           :loop="true"
@@ -114,7 +118,9 @@ const onSwiper = (swiper: SwiperType) => {
         </swiper>
       </div>
       <div class="h-[1px] bg-[#0A0A0A] opacity-10 w-full mt-[60px]"></div>
-      <button class="mx-[50px]  xl:w-[455px] xl:self-end  border border-[#848386] rounded-full text-lg text-[#848386] h-[73px]  mt-[60px] xl:mr-[50px]">
+      <button
+        class="mx-[50px] xl:w-[455px] xl:self-end border border-[#848386] rounded-full text-lg text-[#848386] h-[73px] mt-[60px] xl:mr-[50px]"
+      >
         <span class="lg:hidden">Подробнее</span>
         <span class="hidden lg:block">Заказать ремонт</span>
       </button>

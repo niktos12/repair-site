@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+import OrderFormModal from './OrderFormModal.vue'
+
+const isOrderModalOpen = ref(false)
 const scrollToTop = () => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
 }
@@ -30,10 +34,12 @@ const scrollToTop = () => {
         </button>
         <button
           class="w-full md:w-[455px] py-[20px] md:py-[30px] border bg-[#FFFBFC] border-white/30 rounded-full font-medium leading-[13px] text-base md:text-lg text-[#848386] cursor-pointer transition-all duration-300 hover:bg-white hover:text-black"
+          @click="isOrderModalOpen = true"
         >
           Заказать ремонт
         </button>
       </div>
     </div>
   </section>
+  <OrderFormModal v-model="isOrderModalOpen" />
 </template>
